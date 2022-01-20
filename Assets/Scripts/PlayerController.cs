@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    
+    public GameObject finalBall;
 
     private Rigidbody rb;
     private float movementX;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         rb = GetComponent<Rigidbody>();
         winTextObject.SetActive(false);
+        finalBall.SetActive(false);
         SetCountText();
     }
 
@@ -37,8 +40,13 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if(count >= 13) {
+
+        if(count >= 15) {
             winTextObject.SetActive(true);
+        }
+        else if(count == 14) 
+        {
+            finalBall.SetActive(true);
         }
     }
 
