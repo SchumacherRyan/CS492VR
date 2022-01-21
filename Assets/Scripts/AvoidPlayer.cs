@@ -21,4 +21,11 @@ public class AvoidPlayer : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * speed * Time.deltaTime);
         }
     }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Wall"))
+        {
+            transform.position = new Vector3(0.0f, 0.5f, 0.0f);
+        }
+    }
 }
